@@ -14,7 +14,7 @@ simple usage fast and light javaScript plugin for everyone jr or sr does not mat
 
 * Image Usage 
 
-` var rgb =  getImage(document.getElementById('your element Id'));`
+` var rgb =  getImage(document.getElementById('your element Id'));`<br>
 `console.log(rgb)`
 
 * Video Usage 
