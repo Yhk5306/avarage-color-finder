@@ -5,7 +5,7 @@ Avarage color picker for videos and images
 simple usage fast and light javaScript plugin for everyone jr or sr does not matter 
 
 
-###Install
+### Installation
 
 `<script src="assets/js/acp-min.js"></script>
 `
