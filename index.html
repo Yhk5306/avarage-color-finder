@@ -135,17 +135,11 @@
 <script src="assets/js/app.js"></script>
 <script src="assets/js/acp.js"></script>
 <script>
-    // jQuery example
-    // getVideoRGB($('#video')[0])
-
     getVideoRGB(document.getElementById('video'),function (result){
         $('.acp').css('color',result)
         $('#example-color').text(result).css('color',result)
         $('.tab-links').css('background',result)
     });
-
-
-    // var rgb =  getImage(document.getElementById('image'),10)
 </script>
 </body>
 </html>
