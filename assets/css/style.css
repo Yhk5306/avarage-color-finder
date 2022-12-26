@@ -126,6 +126,7 @@ body {
 
 .video-block video{
     width: 100%;
+    box-shadow: currentColor 0 0 20px 2px;
 }
 .tab-links {
     background-color:#e9ecef ;
