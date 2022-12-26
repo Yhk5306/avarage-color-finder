@@ -145,8 +145,8 @@
 <script>
 
     // Added document.ready cause of the ios causes error
-    $( document ).ready(function() {
-        var rgb =  getImage(document.getElementById('image'));
+    $( document ).ready( async function() {
+        var rgb = await getImage(document.getElementById('image'));
         $('#image-color').text(rgb).css('color',rgb)
         $('.acp-img-demo').css('background',rgb)
     })
