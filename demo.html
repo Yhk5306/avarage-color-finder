@@ -143,9 +143,13 @@
 <script src="assets/js/app.js"></script>
 <script src="assets/js/acp.js"></script>
 <script>
-    var rgb =  getImage(document.getElementById('image'));
-    $('#image-color').text(rgb).css('color',rgb)
-    $('.acp-img-demo').css('background',rgb)
+
+    // Added document.ready cause of the ios causes error
+    $( document ).ready(function() {
+        var rgb =  getImage(document.getElementById('image'));
+        $('#image-color').text(rgb).css('color',rgb)
+        $('.acp-img-demo').css('background',rgb)
+    })
 
     getVideoRGB(document.getElementById('video'),function (result){
         $('#example-color').text(result).css('color',result)
