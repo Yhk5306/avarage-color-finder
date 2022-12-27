@@ -144,11 +144,11 @@
 <script src="assets/js/acp.js"></script>
 <script>
 
-    // Added document.ready cause of the ios causes error
-    $( document ).ready( async function() {
+    // On image should wait the image to load
+    $( '#image' ).load( function() {
         var rgb =  getImage(document.getElementById('image'));
-        $('#image-color').text(rgb).css('color',await rgb)
-        $('.acp-img-demo').css('background',await rgb)
+        $('#image-color').text(rgb).css('color', rgb)
+        $('.acp-img-demo').css('background', rgb)
     })
 
     getVideoRGB(document.getElementById('video'),function (result){
