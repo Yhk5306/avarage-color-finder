@@ -1,7 +1,7 @@
 
 function getImage(img,block) {
-    imageToBase(img,block)
-    var rgb = getAverageRGB(img,block)
+    var base64 = imageToBase(img,block)
+    var rgb = getAverageRGB(base64,block)
     return rgb
 }
 
@@ -18,6 +18,7 @@ function imageToBase(img){
     xhr.open('GET', img.src);
     xhr.responseType = 'blob';
     xhr.send();
+    return img
 }
 
 
@@ -78,14 +79,14 @@ async function getVideoRGB(videoId,callback){
 
     if(video.playing === true || video.currentTime === 0){ // checks if element is playing right now
         video.addEventListener('play',  function getVid() {
-                var canvas = document.createElement('canvas');
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-                var context = canvas.getContext('2d');
-                context.drawImage(video, 0, 0, canvas.width, canvas.height);
-                color = getAverageRGB(canvas,5)
-                callback(color)
-                setTimeout(getVid)
+            var canvas = document.createElement('canvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            var context = canvas.getContext('2d');
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            color = getAverageRGB(canvas,5)
+            callback(color)
+            setTimeout(getVid)
         }, false);
     }
 }
