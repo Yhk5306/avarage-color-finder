@@ -145,11 +145,14 @@
 <script>
 
     // On image should wait the image to load
-    $( '#image' ).load( function() {
-        var rgb =  getImage(document.getElementById('image'));
-        $('#image-color').text(rgb).css('color', rgb)
-        $('.acp-img-demo').css('background', rgb)
-    })
+
+    $(function(){ // document ready
+        $('.acp-img img').bind('load', function(){ // image ready
+            var rgb =  getImage(document.getElementById('image'));
+            $('#image-color').text(rgb).css('color', rgb)
+            $('.acp-img-demo').css('background', rgb)
+        });
+    });
 
     getVideoRGB(document.getElementById('video'),function (result){
         $('#example-color').text(result).css('color',result)
