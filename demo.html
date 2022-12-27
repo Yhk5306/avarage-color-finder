@@ -141,18 +141,19 @@
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/app.js"></script>
+
+
+<!-- Main Plugin file acp.js || acp-min.js -->
 <script src="assets/js/acp.js"></script>
+
 <script>
 
     // On image should wait the image to load
 
-    $(function(){ // document ready
-        $('.acp-img img').bind('load', function(){ // image ready
-            var rgb =  getImage(document.getElementById('image'));
-            $('#image-color').text(rgb).css('color', rgb)
-            $('.acp-img-demo').css('background', rgb)
-        });
-    });
+    var element = document.getElementById('image');
+    var rgb = getImage(document.getElementById('image'));
+    $('#image-color').text(rgb).css('color', rgb)
+    $('.acp-img-demo').css('background', rgb)
 
     getVideoRGB(document.getElementById('video'),function (result){
         $('#example-color').text(result).css('color',result)
