@@ -64,12 +64,6 @@ function getAverageRGB(imgEl,block){
     return 'rgb('+rgb.r+','+rgb.g+','+rgb.b+')';
 }
 
-Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
-    get: function(){
-        return !!(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2);
-    }
-})
-
 
 
 async function getVideoRGB(videoId,callback){
@@ -77,18 +71,18 @@ async function getVideoRGB(videoId,callback){
     var color = '';
     var defaultRGB = {r:0,g:0,b:0}
 
-    if(video.playing === true || video.currentTime === 0){ // checks if element is playing right now
         video.addEventListener('play',  function getVid() {
-            var canvas = document.createElement('canvas');
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            var context = canvas.getContext('2d');
-            context.drawImage(video, 0, 0, canvas.width, canvas.height);
-            color = getAverageRGB(canvas,5)
-            callback(color)
-            setTimeout(getVid)
+            if (!video.paused) {
+                var canvas = document.createElement('canvas');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                var context = canvas.getContext('2d');
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                color = getAverageRGB(canvas,5)
+                callback(color)
+                setTimeout(getVid)
+            }
         }, false);
-    }
 }
 
 
