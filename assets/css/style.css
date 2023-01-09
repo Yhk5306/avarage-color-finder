@@ -203,3 +203,8 @@ hr {
 .image-section h2 {
     text-align: center;
 }
+.warning {
+    color: #ff0135;
+    font-size: larger;
+    font-weight: 700;
+}

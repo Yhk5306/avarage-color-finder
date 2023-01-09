@@ -82,11 +82,16 @@
                     </div>
                     <div class="usage-area mt-1r">
                         <samp>
+                            $(document).ready(function (){
+                            <br>
                             < img src="assets/img/nature.jpeg" alt="nature" id="image">
                             <br>
                             <br>
                             var rgb =  getImage(document.getElementById('image'));<br>
-                                console.log(rgb)
+                                console.log(rgb)<br>
+                            })
+                            <br>
+                            <span class="warning">Do not forget the use this function after the image or dom loaded !!!</span>
                         </samp>
                     </div>
                 </div>
@@ -147,10 +152,12 @@
 <script src="assets/js/acp.js"></script>
 
 <script>
+    $(document).ready(function (){
+        var rgb = getImage(document.getElementById('image'));
+        $('#image-color').text(rgb).css('color', rgb)
+        $('.acp-img-demo').css('background', rgb)
+    })
 
-    var rgb = getImage(document.getElementById('image'));
-    $('#image-color').text(rgb).css('color', rgb)
-    $('.acp-img-demo').css('background', rgb)
 
     getVideoRGB(document.getElementById('video'),function (result){
         $('#example-color').text(result).css('color',result)
