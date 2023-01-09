@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Demos</title>
     <meta charset="utf-8">
@@ -82,12 +82,12 @@
                     </div>
                     <div class="usage-area mt-1r">
                         <samp>
-                            $(document).ready(function (){
-                            <br>
                             < img src="assets/img/nature.jpeg" alt="nature" id="image">
                             <br>
                             <br>
-                            var rgb =  getImage(document.getElementById('image'));<br>
+                            $(document).ready(async function (){
+                            <br>
+                            var rgb = await getImage(document.getElementById('image'));<br>
                                 console.log(rgb)<br>
                             })
                             <br>
@@ -128,6 +128,14 @@
                         </div>
                         <div class="usage-area mt-1r">
                             <samp>
+                                < video id="video"  muted controls playsinline >
+                                <br>
+                                   < source type="video/mp4" src="your-video">
+                                <br>
+                                < / video>
+                                <br>
+                                <br>
+                                <br>
                                 getVideoRGB(document.getElementById('video'),<br>function(result){<br>
                                 result
                                 <br>});</samp>
@@ -152,8 +160,8 @@
 <script src="assets/js/acp.js"></script>
 
 <script>
-    $(document).ready(function (){
-        var rgb = getImage(document.getElementById('image'));
+    $(document).ready(async function (){
+        var rgb = await getImage(document.getElementById('image'));
         $('#image-color').text(rgb).css('color', rgb)
         $('.acp-img-demo').css('background', rgb)
     })
