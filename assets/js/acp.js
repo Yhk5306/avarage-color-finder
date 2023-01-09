@@ -1,25 +1,9 @@
 
 function getImage(img,block) {
-    var base64 = imageToBase(img,block)
-    var rgb = getAverageRGB(base64,block)
-    return rgb
+    var rgb =  getAverageRGB(img,block)
+    return  rgb
 }
 
-
-function imageToBase(img){
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function() {
-        var reader = new FileReader();
-        reader.onloadend = function() {
-            img.src = reader.result
-        }
-        reader.readAsDataURL(xhr.response);
-    };
-    xhr.open('GET', img.src);
-    xhr.responseType = 'blob';
-    xhr.send();
-    return img
-}
 
 
 function getAverageRGB(imgEl,block){
