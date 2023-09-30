@@ -164,7 +164,7 @@
 
 <script>
     $(document).ready(async function (){
-        var rgb = await getImage(document.getElementById('image').src);
+        var rgb = await getImage(document.getElementById('image'));
         $('#image-color').text(rgb).css('color', rgb)
         $('.acp-img-demo').css('background', rgb)
     })
@@ -173,7 +173,7 @@
     getVideoRGB(document.getElementById('video'),function (result){
         $('#example-color').text(result).css('color',result)
         $('.video-box').css('background',result)
-        $('.video-block').css('box-shadow',' 10px 10px 5px 0px'+result)
+        $('.video-block').css('box-shadow', '10px 10px 5px 0px ' + result);
     });
 </script>
 </body>
